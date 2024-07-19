@@ -64,14 +64,13 @@ df = df.drop(columns=['season_id', 'team_id_home', 'team_abbreviation_home', 'te
                 'pts_home', 'pts_away', 'ftm_away', 'fta_away', 'oreb_away', 'dreb_away'])
 
 #create 2 data frames, one for in-season data, the other for playoffs
-df_season = df[df['season_type'] == 'Regular Season']
-df_season = df_season.drop(columns=['season_type'])
-df_season.info()
+df_playoff = df[df['season_type'] == 'Playoffs']
+df_playoff =df_playoff.drop(columns=['season_type'])
 
 #Linear Regression - Predict the scoring margin of the home team based on
 # true shooting percentage, assist to turnover ration, rebound margin
-X = df_season[['tsp_home', 'tsp_away', 'a2to_home', 'a2to_away', 'rebound_margin_home']]
-y = df_season[['plus_minus_home']]
+X = df_playoff[['tsp_home', 'tsp_away', 'a2to_home', 'a2to_away', 'rebound_margin_home']]
+y = df_playoff[['plus_minus_home']]
 
 reg = linear_model.LinearRegression()
 reg.fit(X,y)
@@ -103,8 +102,8 @@ print(f"Model Score: {model.score(X_test, y_test)}")
 #The Logistic Regression attemps calculate what drives the chances of the home team winning
 #This does analsyis is not concerned with scoring margin
 logistic_regression_model = linear_model.LogisticRegression(random_state=25, max_iter=1000)
-y = df_season['wl_home'].astype(int)
-X = df_season[['tsp_home', 'tsp_away', 'a2to_home', 'a2to_away', 'rebound_margin_home']]
+y = df_playoff['wl_home'].astype(int)
+X = df_playoff[['tsp_home', 'tsp_away', 'a2to_home', 'a2to_away', 'rebound_margin_home']]
 X_train, X_test, y_train, y_test = train_test_split(X, y)
 lr_model = logistic_regression_model.fit(X_train, y_train)
 
@@ -117,6 +116,12 @@ print(f"Accuracy Score: {accuracy_score(y_test, testing_predictions)}")
 print("Coefficients:", lr_model.coef_[0])
 print("Intercept:", lr_model.intercept_[0])
 
+#do the analysis on playoff data?
+#Darryl Morey "Modified Pytagorean Theorem"
+#separate files for k_means, pca, playoff and in-season
+#show how you checked for null values and content in the data
+#proper citation
+
 # Make predictions on the test data
 predictions = logistic_regression_model.predict(X)
 # Create a confusion matrix
@@ -124,11 +129,6 @@ print(confusion_matrix(y, predictions, labels = [1,0]))
 print(classification_report(y, predictions, labels = [1, 0]))
 print(balanced_accuracy_score(y, predictions))
 
-#do the analysis on playoff data?
-#Darryl Morey "Modified Pytagorean Theorem"
-#separate files for k_means, pca, playoff and in-season
-#show how you checked for null values and content in the data
-#proper citation
 
 #Random Forest Classifier
 X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=1)
@@ -142,6 +142,7 @@ X_test_scaled = scaler.transform(X_test)
 clf = RandomForestClassifier(random_state=1, n_estimators=500).fit(X_train_scaled, y_train)
 
 # Evaluate the model
+print(f"\n***Results from Random Forest***")
 print(f'Training Score: {clf.score(X_train_scaled, y_train)}')
 print(f'Testing Score: {clf.score(X_test_scaled, y_test)}')
 
@@ -149,9 +150,6 @@ print(f'Testing Score: {clf.score(X_test_scaled, y_test)}')
 feature_importances = clf.feature_importances_
 # List the top 10 most important features
 importances_sorted = sorted(zip(feature_importances, X.columns), reverse=True)
-print("\n")
-print(f"{importances_sorted[:10]}")
-
 # Plot the feature importances
 features = sorted(zip(X.columns, feature_importances), key = lambda x: x[1])
 cols = [f[0] for f in features]
@@ -165,4 +163,5 @@ plt.margins(y=0.001)
 ax.barh(y=cols, width=width)
 
 plt.show()
-print(df_season['wl_home'].value_counts())
+print(df_playoff['wl_home'].value_counts())
+
