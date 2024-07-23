@@ -8,10 +8,10 @@ data to build predictive models.  The data exploration intends to provide insigh
 into what the critical components are in predicting the outcomes.
 
 ## Why Study Sports Data?
-Areas of interest include the following:
-    1. Professional
-    2. Fan Interests
-    3. Global Impacts
+Areas of interest include the following: <br>
+    1. Professional <br>
+    2. Fan Interests <br>
+    3. Global Impacts <br>
 
 Professional sports is a multi-billion dollar global industry.  Coaching staff
 that understand the use of analytics can make better decisions real time during
@@ -41,12 +41,12 @@ Results:  Using the Random Forest Models, balanced accuracy scores for predictin
 the winner were as high as 80% after 5 innings, and 95% after 8 innings.
 
 **fotedar_nba_analytics**<br><br>
-The files in the 'fotedar_nba_analytics' consists of the following:
-    1/ nba_project_season - this file studies playoff nba data
-    2/ nba_project_playoffs - this file studies in season nba data
-    3/ nba_project_kmeans and pca - this file performs kmeans and pca analysis on the data
-    4/ csv - contains the input data
-    5/ output - output files
+The files in the 'fotedar_nba_analytics' consists of the following: <br>
+    1/ nba_project_season - this file studies playoff nba data <br>
+    2/ nba_project_playoffs - this file studies in season nba data <br>
+    3/ nba_project_kmeans and pca - this file performs kmeans and pca analysis on the data <br>
+    4/ csv - contains the input data <br>
+    5/ output - output files <br>
 
 I used data I found on <a href="https://www.kaggle.com/datasets/wyattowalsh/basketball">Kaggle</a>.
 The data covers every game from 1946-2023 - it includes teams, winners losers, points, shooting percentage, rebound margin etc.
