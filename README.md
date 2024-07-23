@@ -51,7 +51,7 @@ The files in the 'fotedar_nba_analytics' consists of the following: <br>
 I used data I found on <a href="https://www.kaggle.com/datasets/wyattowalsh/basketball">Kaggle</a>.
 The data covers every game from 1946-2023 - it includes teams, winners losers, points, shooting percentage, rebound margin etc.
 
-For the purposes of this projects I only used games from 2004 as this is the year the NBA took its current form.
+For the purposes of this project I only used games from 2004 as this is the year the NBA took its current form.
 The programs convert some of the  statistics into advance metrics (true shooting percentage, assist to turnover ratio) to see how 
 they determine winning margin and who wins. 
 
