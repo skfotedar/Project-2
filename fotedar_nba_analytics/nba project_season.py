@@ -165,5 +165,6 @@ plt.margins(y=0.001)
 
 ax.barh(y=cols, width=width)
 
-plt.show()
+#plt.show()
+plt.savefig("./output/feature importance reg season.png")
 print(df_season['wl_home'].value_counts())

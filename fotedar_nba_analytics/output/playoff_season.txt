@@ -16,23 +16,23 @@ Model Score: 0.842010218391496
 
 ***Results from Logistic Regression***
 
-Training Data Score: 0.8572695035460993
-Testing Data Score: 0.8404255319148937
-Accuracy Score: 0.8404255319148937
-Coefficients: [ 7.56820341 -6.86906413  1.22788974 -1.31227937  0.14247171]
-Intercept: 0.0024203964396580374
-[[856  79]
- [142 427]]
+Training Data Score: 0.8519503546099291
+Testing Data Score: 0.8776595744680851
+Accuracy Score: 0.8776595744680851
+Coefficients: [ 7.74175806 -7.14815635  1.10741673 -1.3197033   0.13411826]
+Intercept: 0.19815625933841377
+[[855  80]
+ [133 436]]
               precision    recall  f1-score   support
 
-           1       0.86      0.92      0.89       935
-           0       0.84      0.75      0.79       569
+           1       0.87      0.91      0.89       935
+           0       0.84      0.77      0.80       569
 
-    accuracy                           0.85      1504
-   macro avg       0.85      0.83      0.84      1504
-weighted avg       0.85      0.85      0.85      1504
+    accuracy                           0.86      1504
+   macro avg       0.86      0.84      0.85      1504
+weighted avg       0.86      0.86      0.86      1504
 
-0.8329736943507232
+0.8403475465917314
 
 ***Results from Random Forest***
 Training Score: 1.0

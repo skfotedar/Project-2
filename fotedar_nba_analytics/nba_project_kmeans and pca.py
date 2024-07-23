@@ -79,7 +79,7 @@ normalized_df['game_id'] = season_wl_list
 normalized_df = normalized_df.set_index('game_id')
 
 k_values = []
-for i in range (1,50):
+for i in range (1,300):
     k_values.append(i)
 
 inertias = []
@@ -99,7 +99,10 @@ plt.xlabel('Number of Clusters')
 plt.ylabel('Inertia')
 plt.title('Inertia Values vs. Number of Clusters')
 plt.grid(True)
-plt.show()
+plt.savefig("./output/kmeans inertia.png")
+del plt
+
+import matplotlib.pyplot as plt
 
 #kmeans clustering
 # I tried different ranges for the clustering, 25 seems like a good amount
@@ -124,6 +127,7 @@ plt.scatter(x=copy_normalized_df['tsp_home'],
 plt.xlabel('True Shooting Percentage Home')
 plt.ylabel('Assist to Turnover Home')
 plt.title('Scatter Plot')
+plt.savefig("./output/Plot 1.png")
 plt.show()
 
 # x = True Shooting Percentage of the Home Team
@@ -136,6 +140,7 @@ plt.scatter(x=copy_normalized_df['tsp_home'],
 plt.xlabel('True Shooting Percentage Home')
 plt.ylabel('Rebound Margin Home')
 plt.title('Scatter Plot')
+plt.savefig("./output/plot 2.png")
 plt.show()
 
 # x = True Shooting Percentage of the Home Team
@@ -148,6 +153,7 @@ plt.scatter(x=copy_normalized_df['tsp_home'],
 plt.xlabel('True Shooting Percentage Home')
 plt.ylabel('True Shooting Percentage Away')
 plt.title('Scatter Plot')
+plt.savefig("./output/plot 3.png")
 plt.show()
 
 #pca analysis

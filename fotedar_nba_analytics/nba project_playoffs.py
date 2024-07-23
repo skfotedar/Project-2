@@ -156,6 +156,7 @@ plt.margins(y=0.001)
 
 ax.barh(y=cols, width=width)
 
-plt.show()
+#plt.show()
+plt.savefig("./output/feature importance playoff.png")
 print(df_playoff['wl_home'].value_counts())
 
