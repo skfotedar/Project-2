@@ -100,6 +100,7 @@ plt.ylabel('Inertia')
 plt.title('Inertia Values vs. Number of Clusters')
 plt.grid(True)
 plt.savefig("./output/kmeans inertia.png")
+plt.show()
 del plt
 
 import matplotlib.pyplot as plt
