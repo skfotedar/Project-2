@@ -1,7 +1,5 @@
 import pandas as pd
 import datetime
-from sklearn.cluster import KMeans
-from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
 import matplotlib.pyplot as plt
 from sklearn import linear_model
@@ -9,11 +7,14 @@ from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report, balanced_accuracy_score
 from sklearn.ensemble import RandomForestClassifier
+import sys
 import numpy as np
 
 #pull data from the file
 #this file lists all NBA games going back to 1946
 file_name = "./csv/game.csv"
+output_file = "./output/reg_season.txt"
+sys.stdout = open(output_file, "w")
 df = pd.read_csv(file_name, index_col='game_id')
 
 #only use games from 2004 to present

@@ -4,6 +4,7 @@ from sklearn.cluster import KMeans
 from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
 import matplotlib.pyplot as plt
+import sys
 from sklearn import linear_model
 from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.model_selection import train_test_split
@@ -15,6 +16,8 @@ import numpy as np
 #this file lists all NBA games going back to 1946
 file_name = "./csv/game.csv"
 df = pd.read_csv(file_name, index_col='game_id')
+output_file = "./output/pca_analysis.txt"
+sys.stdout = open(output_file, "w")
 
 #only use games from 2004 to present
 #2004 is the first year the NBA is in its current form

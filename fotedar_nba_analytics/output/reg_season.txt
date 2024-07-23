@@ -1,0 +1,60 @@
+<class 'pandas.core.frame.DataFrame'>
+Index: 21579 entries, 20400002 to 22201218
+Data columns (total 9 columns):
+ #   Column               Non-Null Count  Dtype  
+---  ------               --------------  -----  
+ 0   wl_home              21579 non-null  object 
+ 1   plus_minus_home      21579 non-null  int64  
+ 2   plus_minus_away      21579 non-null  int64  
+ 3   a2to_home            21579 non-null  float64
+ 4   a2to_away            21579 non-null  float64
+ 5   tsp_home             21579 non-null  float64
+ 6   tsp_away             21579 non-null  float64
+ 7   rebound_margin_home  21579 non-null  float64
+ 8   rebound_margin_away  21579 non-null  float64
+dtypes: float64(6), int64(2), object(1)
+memory usage: 1.6+ MB
+
+***Results from Linear Regression***
+
+             variables  coefficients
+0             tsp_home    103.075221
+1             tsp_away   -101.567859
+2            a2to_home      5.125246
+3            a2to_away     -5.492513
+4  rebound_margin_home      0.503124
+
+y-intercept: 0.1749359319250292
+
+mean squared error (MSE): 29.966687819267534
+R-squared (R2): 0.8338795204915315
+Model Score: 0.8338795204915315
+
+***Results from Logistic Regression***
+
+Training Data Score: 0.9021255561047948
+Testing Data Score: 0.9021316033364226
+Accuracy Score: 0.9021316033364226
+Coefficients: [ 25.27699734 -24.50588206   1.59267696  -1.64746553   0.1499537 ]
+Intercept: -0.1568146423989216
+[[11700   912]
+ [ 1200  7767]]
+              precision    recall  f1-score   support
+
+           1       0.91      0.93      0.92     12612
+           0       0.89      0.87      0.88      8967
+
+    accuracy                           0.90     21579
+   macro avg       0.90      0.90      0.90     21579
+weighted avg       0.90      0.90      0.90     21579
+
+0.8969319474291877
+Training Score: 1.0
+Testing Score: 0.9026876737720111
+
+
+[(np.float64(0.30528872422110803), 'tsp_home'), (np.float64(0.29757309796602377), 'tsp_away'), (np.float64(0.13906121804165597), 'rebound_margin_home'), (np.float64(0.1307701082513154), 'a2to_away'), (np.float64(0.12730685151989685), 'a2to_home')]
+wl_home
+1    12612
+0     8967
+Name: count, dtype: int64
