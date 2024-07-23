@@ -63,7 +63,7 @@ df = df.drop(columns=['season_id', 'team_id_home', 'team_abbreviation_home', 'te
                 'stl_away', 'blk_away', 'tov_away', 'pf_away', 'ft_pct_home', 'ft_pct_away', 'fta_home',
                 'pts_home', 'pts_away', 'ftm_away', 'fta_away', 'oreb_away', 'dreb_away'])
 
-#create 2 data frames, one for in-season data, the other for playoffs
+#create 1 data frames, one  for playoffs
 df_playoff = df[df['season_type'] == 'Playoffs']
 df_playoff =df_playoff.drop(columns=['season_type'])
 
@@ -116,19 +116,12 @@ print(f"Accuracy Score: {accuracy_score(y_test, testing_predictions)}")
 print("Coefficients:", lr_model.coef_[0])
 print("Intercept:", lr_model.intercept_[0])
 
-#do the analysis on playoff data?
-#Darryl Morey "Modified Pytagorean Theorem"
-#separate files for k_means, pca, playoff and in-season
-#show how you checked for null values and content in the data
-#proper citation
-
 # Make predictions on the test data
 predictions = logistic_regression_model.predict(X)
 # Create a confusion matrix
 print(confusion_matrix(y, predictions, labels = [1,0]))
 print(classification_report(y, predictions, labels = [1, 0]))
 print(balanced_accuracy_score(y, predictions))
-
 
 #Random Forest Classifier
 X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=1)
